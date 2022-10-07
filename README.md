@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 It uses [Prisma](https://www.npmjs.com/package/prisma) to manage db connectivity and [Fastify](https://www.npmjs.com/package/fastify) as server. 
-Sessions are handled by [iron-session](https://www.npmjs.com/package/iron-session?activeTab=readme) iron-session. 
+Sessions are handled by [iron-session](https://www.npmjs.com/package/iron-session?activeTab=readme). 
 Note: You need to have PostgreSQL installed on your server/machine.
 
 
