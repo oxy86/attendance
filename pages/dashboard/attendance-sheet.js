@@ -102,6 +102,8 @@ export default function Page(props) {
   )
 }
 
+
+// query for all the rows from the attendanceSheet tables and also fetch the attendance by selecting the name, email, and role.
 export const getServerSideProps = withIronSessionSsr(async () => {
 
 
@@ -134,3 +136,4 @@ export const getServerSideProps = withIronSessionSsr(async () => {
   }
 
 }, sessionCookie()) 
+

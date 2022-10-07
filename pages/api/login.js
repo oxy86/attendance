@@ -3,6 +3,12 @@ import { withIronSessionApiRoute } from "iron-session/next";
 import { parseBody } from '../../lib/parseBody';
 import { sessionCookie } from '../../lib/session';
 
+
+// This route handles the login POST request towards localhost:3000/api/login, 
+// Generates authentication cookies once the user is authenticated.
+
+// PrismaClient to make our database queries
+// withIronSessionApiRoute is the iron-session function for handling user sessions in RESTful applications.
 export default withIronSessionApiRoute(
     async function loginRoute(req, res) {
 
@@ -33,4 +39,5 @@ export default withIronSessionApiRoute(
   },
   sessionCookie(),
 );
+
 

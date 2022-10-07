@@ -3,7 +3,8 @@ import { withIronSessionApiRoute } from "iron-session/next";
 import { parseBody } from '../../lib/parseBody';
 import { sessionCookie } from '../../lib/session';
 
-  
+// This route handles our API POST request to localhost:3000/api/sign-attendance. 
+// The route accepts the POST request, while attendanceSheetId and action are used to sign in and out of attendanceSheet.  
 export default withIronSessionApiRoute( async function handler(req, res) {
 
     const prisma = new PrismaClient()

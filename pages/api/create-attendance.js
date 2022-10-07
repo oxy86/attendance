@@ -18,3 +18,4 @@ export default withIronSessionApiRoute( async function handler(req, res) {
   res.json({status: "success", data: attendanceSheet});
     
 }, sessionCookie())
+

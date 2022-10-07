@@ -9,6 +9,7 @@ import { sessionCookie } from "../../lib/session";
 import { postData } from "../../lib/request";
 
 
+// provides an interface for users to sign in and sign out of the attendance sheet. Admins can also create an attendance sheet
 export default function Page(props) {
 
   const [attendanceSheet, setState] = useState(JSON.parse(props.attendanceSheet));
@@ -117,6 +118,9 @@ export default function Page(props) {
   )
 }
 
+// We use the getServerSideProps to generate the page data, and withIronSessionSsr is the iron-session function for working with server-side rendered pages.
+
+
 export const getServerSideProps = withIronSessionSsr( async ({req}) => {
 
   const user = req.session.user
@@ -145,3 +149,6 @@ export const getServerSideProps = withIronSessionSsr( async ({req}) => {
   }
 
 }, sessionCookie()) 
+
+ 
+

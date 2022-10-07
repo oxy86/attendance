@@ -5,6 +5,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'
 
 
+// Displays a login form.
+// Sends a post request with the email and password provided via the form to the localhost:3000/api/login route. 
+// Once the credentials are validated it calls the router.push('/dashboard') method that redirects the user to localhost:3000/api/dashboard
 export default function Home() {
 
   const [data, setData] = useState({email: null, password: null});
@@ -70,3 +73,4 @@ export default function Home() {
     </div>
   )
 }
+

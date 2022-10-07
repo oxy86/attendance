@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '../styles/SideBar.module.css'
 
+// sidebar to navigate to different pages on our app dashboard
 const SideBar = () => {
 
     const router = useRouter()

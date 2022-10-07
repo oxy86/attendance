@@ -89,6 +89,9 @@ export default function Page(props) {
   )
 }
 
+
+// we query for all the rows from the attendanceSheet table and also fetch the attendance where the userId is equal to the user id stored in the user session.
+
 export const getServerSideProps = withIronSessionSsr( async ({req}) => {
 
   const user = req.session.user
@@ -115,3 +118,4 @@ export const getServerSideProps = withIronSessionSsr( async ({req}) => {
   }
 
 }, sessionCookie()) 
+
