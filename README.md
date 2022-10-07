@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-It uses [Prisma](https://www.npmjs.com/package/prisma) to manage db connectivity and [Fastify](https://www.npmjs.com/package/fastify) as server. 
+It uses [Prisma](https://www.npmjs.com/package/prisma) to manage db connectivity and a custom [Fastify](https://www.npmjs.com/package/fastify) server. 
 Sessions are handled by [iron-session](https://www.npmjs.com/package/iron-session?activeTab=readme). 
 Note: You need to have PostgreSQL installed on your server/machine.
 
@@ -72,7 +72,15 @@ Now you are ready to run the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the app running. You should be able to login using the credentials you defined in Step 4.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app running. You should be able to login using the credentials you defined in Step 4. 
+
+First login with a user who has the ADMIN role. Only those users can create attendance sheets. Once you login , it will redirect you to your dashboard. 
+
+From there, click on the Create Attendance Sheet button to create a new attendance sheet. The attendance sheet will appear. Click on the Sign In button to sign in yourself. Once the sign-in is successful, the sign-in time will be displayed and the Sign Out button will be visible. 
+Click on the Sign Out button to sign out, and repeat this process many times with different users.
+
+The Attendance and the Attendance Sheet tabs on the left sidebar lead to pages where you can view users’ attendance.
+
 
 
 ## Learn More
