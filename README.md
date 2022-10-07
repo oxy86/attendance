@@ -1,10 +1,56 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-It uses Prisma and Fastify. Needs Postgres on your server. The DB schema in defined in prisma/schema.prisma. 
+It uses Prisma and Fastify. Needs PostgreSQL on your server.
 
 
-## Getting Started
+## Before running the app
 
-To use the app, you should first define some users in the DB using Prisma Studio. To start Prisma Studio use:
+Step 1. 
+
+Create a db and a user in your local Postgres installation. Connect to postgres:
+
+```bash
+sudo -u postgres psql
+```
+
+Then create then new db and a user with privileges on it (change the YOUR_DB_ to your own):
+
+```bash
+CREATE DATABASE YOUR_DB_NAME;
+
+CREATE USER YOUR_DB_USER WITH ENCRYPTED PASSWORD 'YOUR_DB_PASSWORD';
+
+GRANT ALL PRIVILEGES ON DATABASE YOUR_DB_NAME TO YOUR_DB_USER;
+
+\c YOUR_DB_NAME
+
+```
+
+The db is empty. Tables will be created on Step 3. Issue quit to exit the postgres terminal.
+
+
+Step 2. 
+
+Then, create a file .env inside the project root with contents like these:
+
+```bash
+# Your database URL with your own db name, db user and her password:
+DATABASE_URL="postgresql://YOUR_DB_USER:YOUR_DB_PASSWORD@localhost:5432/YOUR_DB_NAME?schema=public"
+# This is used by iron-session (see lib/session.js). It should be a string of at least 32 characters.
+SESSION_PASSWORD=YOUSESSIONPASSWORDHERE1234567890USESOMETHINGRANDOMPLEASE
+```
+
+Step 3. 
+
+The DB schema (the tables of the database) are already defined in the file prisma/schema.prisma. 
+To actually create these tables in the Postgres db, run the following command:
+
+```bash
+npx prisma db push
+```
+
+Step 4
+
+Finally, you need to define some users in the DB using Prisma Studio. To start Prisma Studio use:
 
 ```bash 
 npx prisma studio 
@@ -18,15 +64,13 @@ To do that click on Add record, then fill in the required fields. Once you are d
 
 ## Run the app
 
-Run the development server:
+Now you are ready to run the development server:
 
 ```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app running. You should be able to login using the credentials you defined in Step 4.
 
 
 ## Learn More
